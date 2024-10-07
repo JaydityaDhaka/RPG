@@ -27,7 +27,7 @@ Mob spawnRandomMob(string location) {
             return {"None", 0, 0, 0};
         }
         // 30% chance of mobs spawning
-        if (randomNumber <= 70) mobName = "Thug";
+        if (randomNumber <= 70) mobName = "Thug";   //Thugs are common
         else if (randomNumber <= 80) mobName = "Skeleton";
         else if (randomNumber <= 90) mobName = "Wolf";
         else mobName = "Witch";

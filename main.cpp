@@ -1,4 +1,5 @@
 #include "characters.h"
+#include "mobs.h"
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
@@ -10,9 +11,9 @@ int main() {
 
     cout << "Welcome to Dragon Quest!" << endl;
 
-    Character player; // Declare the player variable
+    Character player;
 
-    while (true) { // Loop for continuous gameplay
+    while (true) { 
         cout << "\nChoose the type of Warrior you want to become: " << endl;
         cout << "1. Swordsman" << endl;
         cout << "2. Spartan" << endl;
@@ -20,18 +21,55 @@ int main() {
         cout << "4. Archer" << endl;
         cout << "0. Exit the game" << endl;
 
-        int choice;
-        cin >> choice;
+        int c1;             //choice 1
+        cin >> c1;
 
-        if (choice == 0) { // Exit condition
+        if (c1 == 0) { 
             cout << "Exiting the game. Goodbye!" << endl;
-            break; // Exit the loop and end the program
+            break; 
         }
 
-        player = selectCharacter(choice); // Select character based on user input
+        player = selectCharacter(c1); // Select character based on user input
         displayStats(player); // Display player stats
 
         cout << "Good morning player you have woken up in your village!" << endl << "Your goal is to become strong enough and kill the dragon that has been tormenting the lands" << endl << "Kill mobs and trade goods to increase your stats" << endl;
+
+        string location;
+        location = "village";
+
+        cout << "What do you want to do in the village?" << endl;
+        cout << "Press 1 to look for mobs" << endl;
+        cout << "press 2 to sleep and replenish Health" << endl;
+        cout << "Press 3 to travel" << endl;
+        while(true){
+            int c2;
+            cin >> c2;          //choice 2
+
+            switch (c2)
+            {
+            case 1:
+                spawnRandomMob(location);
+                cout << "a mob appeared" << endl;
+                break;
+            
+            case 2:
+                cout << "you heatlh has replenished" << endl;
+                break;
+
+            case 3:
+                cout << "Where do you want to travel" << endl;
+                break;
+            
+            default:
+                cout << "Enter a valid option" << endl;
+                cout << "What do you want to do in the village?" << endl;
+                cout << "Press 1 to look for mobs" << endl;
+                cout << "press 2 to sleep and replenish Health" << endl;
+                cout << "Press 3 to travel" << endl;
+                
+            }
+        }
+        
 
         
     }
