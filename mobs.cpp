@@ -45,11 +45,11 @@ Mob spawnRandomMob(string location) {
     } 
     else if (location == "Village") {
         if (spawnChance > 40) {
-            cout << "No mobs spawn here in the Village this time." << endl;
+            // cout << "No mobs spawn here in the Village this time." << endl;
             // return {"None", 0,0,0,0,0};
         }
         // 40% chance of mobs spawning
-        if (randomNumber <= 40) mobName = "Wolf";
+        if (randomNumber <= 60) mobName = "Wolf";
         else if (randomNumber <= 80) mobName = "Thug";
         else if (randomNumber <= 90) mobName = "Skeleton";
         else mobName = "Witch";

@@ -3,6 +3,8 @@
 
 #include <string>
 
-void chooseLocation();
+using namespace std;
+
+string chooseLocation();
 
 #endif // LOCATIONS_H

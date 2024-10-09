@@ -1,5 +1,7 @@
 #include "characters.h"
 #include "mobs.h"
+#include "fightMech.h"
+#include "locations.h"
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
@@ -36,67 +38,130 @@ int main() {
 
         string location;
         location = "Village";
-
         
         while(true){
-            cout << "What do you want to do in the village?" << endl;
-            cout << "Press 1 to look for mobs" << endl;
-            cout << "press 2 to sleep and replenish Health" << endl;
-            cout << "Press 3 to travel" << endl;
-            int c2;
-            cin >> c2;          //choice 2
-            Mob opponent;
-
-            switch (c2)
-            {
-            case 1:
-                cout << "a mob appeared" << endl;
-                opponent = spawnRandomMob(location);
-                displayStatsMob(opponent);
-                cout << "A " << opponent.name << " stands in front of you " << endl << "Do you want to fight or run away" << endl;  
-                int c3;              //choice
-                cout << "Press 1 to fight" << endl << "Press 2 to run away" << endl; 
-                cin >> c3;
-
-                switch (c3)
-                {
-                case 1:
-                    // fight mechanics
-                    break;
-
-                case 2:
-
-                    break;
-                
-                default:
-                    cout << "Invlaid Input" << endl;
-                    cout << "Press 1 to fight" << endl << "Press 2 to run away" << endl; 
-                    break;
-                }
-                
-                break;
-            
-            case 2:
-                cout << "you heatlh has replenished" << endl;
-
-                displayStats(player);
-                break;
-
-            case 3:
-                cout << "Where do you want to travel" << endl;
-                break;
-            
-            default:
-                cout << "Enter a valid option" << endl;
+            if(location == "Village"){
                 cout << "What do you want to do in the village?" << endl;
                 cout << "Press 1 to look for mobs" << endl;
                 cout << "press 2 to sleep and replenish Health" << endl;
                 cout << "Press 3 to travel" << endl;
+                int c2;
+                cin >> c2;          //choice 2
+                Mob opponent;
+
+                switch (c2)
+                {
+                case 1:
+                    cout << "a mob appeared" << endl;
+                    opponent = spawnRandomMob(location);
+                    displayStatsMob(opponent);
+                    cout << "A " << opponent.name << " stands in front of you " << endl << "Do you want to fight or run away" << endl;  
+                    int c3;              //choice
+                    cout << "Press 1 to fight" << endl << "Press 2 to run away" << endl; 
+                    cin >> c3;
+
+                    switch (c3)
+                    {
+                    case 1:
+                        // fight mechanics
+                        fight(opponent, player);
+                        break;
+
+                    case 2:
+
+                        break;
+                    
+                    default:
+                        cout << "Invlaid Input" << endl;
+                        cout << "Press 1 to fight" << endl << "Press 2 to run away" << endl; 
+                        break;
+                    }
+                    
+                    break;
+                
+                case 2:
+                    cout << "you heatlh has replenished" << endl;
+
+                    displayStats(player);
+                    break;
+
+                case 3:
+                    cout << "Where do you want to travel" << endl;
+                    location = chooseLocation();
+                    break;
+                
+                default:
+                    cout << "Enter a valid option" << endl;
+                    cout << "What do you want to do in the village?" << endl;
+                    cout << "Press 1 to look for mobs" << endl;
+                    cout << "press 2 to sleep and replenish Health" << endl;
+                    cout << "Press 3 to travel" << endl;
+                    
+                }
                 
             }
-        }
-        
+            else if( location == "Jungle"){
+                    cout << "You are in the Jungle. Wild creatures lurk behind every tree!" << endl;
+                    cout << "Press 1 to search for mobs" << endl;
+                    cout << "Press 2 to travel back to another location" << endl;
 
+                    int c2;
+                    cin >> c2;
+
+                    if (c2 == 1) {
+                        Mob opponent = spawnRandomMob(location);
+                        displayStatsMob(opponent);
+                        cout << "A " << opponent.name << " approaches!" << endl;
+                        fight(opponent, player); // Engage in combat
+                    } else if (c2 == 2) {
+                        location = chooseLocation(); // Travel to another location
+                    } else {
+                        cout << "Invalid option." << endl;
+                    }
+            }
+            else if( location == "Town"){
+                cout << "You are now in the Town. It's a peaceful place to rest and trade." << endl;
+                cout << "Press 1 to look for mobs" << endl;
+                cout << "Press 2 to travel to another location" << endl;
+
+                int c2;
+                cin >> c2;
+
+                if (c2 == 1) {
+                    Mob opponent = spawnRandomMob(location);
+                    displayStatsMob(opponent);
+                    cout << "A " << opponent.name << " appears!" << endl;
+                    fight(opponent, player);
+                } else if (c2 == 2) {
+                    location = chooseLocation(); // Travel to another location
+                } else {
+                    cout << "Invalid option." << endl;
+                }
+
+            }
+            else if( location == "Castle"){
+                 cout << "You are at the Castle. It stands tall and mysterious." << endl;
+                cout << "Press 1 to search for mobs" << endl;
+                cout << "Press 2 to travel to another location" << endl;
+
+                int c2;
+                cin >> c2;
+
+                if (c2 == 1) {
+                    Mob opponent = spawnRandomMob(location);
+                    displayStatsMob(opponent);
+                    cout << "A " << opponent.name << " challenges you!" << endl;
+                    fight(opponent, player);
+                } else if (c2 == 2) {
+                    location = chooseLocation(); // Travel to another location
+                } else {
+                    cout << "Invalid option." << endl;
+                }
+            }
+            else if( location == "Dragon's Lair"){
+                cout << "Dragon" << endl;
+            }  
+        }
         
     }
 
