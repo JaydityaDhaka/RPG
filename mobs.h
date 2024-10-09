@@ -8,9 +8,11 @@ struct Mob {
     int hp;
     int attackPower;
     int defense;
+    int magic;
+    int purse;
 };
 
-Mob createMob(std::string mobName);
+void displayStatsMob(const Mob& character);
 Mob spawnRandomMob(std::string location);
 
 #endif // MOBS_H

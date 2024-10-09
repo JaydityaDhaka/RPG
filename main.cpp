@@ -35,25 +35,51 @@ int main() {
         cout << "Good morning player you have woken up in your village!" << endl << "Your goal is to become strong enough and kill the dragon that has been tormenting the lands" << endl << "Kill mobs and trade goods to increase your stats" << endl;
 
         string location;
-        location = "village";
+        location = "Village";
 
-        cout << "What do you want to do in the village?" << endl;
-        cout << "Press 1 to look for mobs" << endl;
-        cout << "press 2 to sleep and replenish Health" << endl;
-        cout << "Press 3 to travel" << endl;
+        
         while(true){
+            cout << "What do you want to do in the village?" << endl;
+            cout << "Press 1 to look for mobs" << endl;
+            cout << "press 2 to sleep and replenish Health" << endl;
+            cout << "Press 3 to travel" << endl;
             int c2;
             cin >> c2;          //choice 2
+            Mob opponent;
 
             switch (c2)
             {
             case 1:
-                spawnRandomMob(location);
                 cout << "a mob appeared" << endl;
+                opponent = spawnRandomMob(location);
+                displayStatsMob(opponent);
+                cout << "A " << opponent.name << " stands in front of you " << endl << "Do you want to fight or run away" << endl;  
+                int c3;              //choice
+                cout << "Press 1 to fight" << endl << "Press 2 to run away" << endl; 
+                cin >> c3;
+
+                switch (c3)
+                {
+                case 1:
+                    // fight mechanics
+                    break;
+
+                case 2:
+
+                    break;
+                
+                default:
+                    cout << "Invlaid Input" << endl;
+                    cout << "Press 1 to fight" << endl << "Press 2 to run away" << endl; 
+                    break;
+                }
+                
                 break;
             
             case 2:
                 cout << "you heatlh has replenished" << endl;
+
+                displayStats(player);
                 break;
 
             case 3:
