@@ -4,6 +4,8 @@
 #include "mobs.h"
 #include "characters.h"
 
+void displayFightStats(const Character& character, const Mob& mob);
+
 void fight(Mob &mob, Character &player);
 int calculateDamage(int attackPower, int defense);
 

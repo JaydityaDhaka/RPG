@@ -15,10 +15,10 @@ void displayStats(const Character& character) {
 }
 
 Character selectCharacter(int choice) {
-    Character swordsman = {"Swordsman", 120, 15, 10, 7, 0, 100};
-    Character spartan = {"Spartan", 150, 20, 15, 5, 0, 100};
-    Character wizard = {"Wizard", 100, 10, 5, 7, 20, 100};
-    Character archer = {"Archer", 110, 12, 8, 12, 5, 100};
+    Character swordsman = {"Swordsman", 120, 15, 5, 7, 0, 100};
+    Character spartan = {"Spartan", 120, 20, 7, 5, 0, 100};
+    Character wizard = {"Wizard", 120, 10, 0, 7, 20, 100};
+    Character archer = {"Archer", 120, 12, 3, 12, 5, 100};
 
     switch (choice) {
         case 1:

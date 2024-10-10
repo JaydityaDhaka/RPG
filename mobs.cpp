@@ -70,10 +70,10 @@ Mob spawnRandomMob(string location) {
         // return {"None", 0,0,0,0,0};
     }
 
-    Mob Wolf = {"Wolf", 80, 5, 5, 0, 5};
+    Mob Wolf = {"Wolf", 80, 7, 5, 0, 5};
     Mob Thug = {"Thug", 100, 10, 10, 0, 5};
     Mob Skeleton = {"Skeleton", 80, 10, 5, 5, 10};
-    Mob Witch = {"Witch", 120, 12, 10, 15, 40};
+    Mob Witch = {"Witch", 120, 15, 10, 15, 40};
 
     // Return the mob created from the random selection
     if (mobName == "Wolf"){

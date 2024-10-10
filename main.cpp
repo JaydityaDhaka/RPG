@@ -2,6 +2,8 @@
 #include "mobs.h"
 #include "fightMech.h"
 #include "locations.h"
+#include "shop.h"
+
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
@@ -81,7 +83,7 @@ int main() {
                 
                 case 2:
                     cout << "you heatlh has replenished" << endl;
-
+                    player.hp = 120;
                     displayStats(player);
                     break;
 
@@ -103,7 +105,7 @@ int main() {
             else if( location == "Jungle"){
                     cout << "You are in the Jungle. Wild creatures lurk behind every tree!" << endl;
                     cout << "Press 1 to search for mobs" << endl;
-                    cout << "Press 2 to travel back to another location" << endl;
+                    cout << "Press 2 to travel " << endl;
 
                     int c2;
                     cin >> c2;
@@ -122,7 +124,9 @@ int main() {
             else if( location == "Town"){
                 cout << "You are now in the Town. It's a peaceful place to rest and trade." << endl;
                 cout << "Press 1 to look for mobs" << endl;
-                cout << "Press 2 to travel to another location" << endl;
+                cout << "Press 2 to buy Items" << endl;
+                cout << "Press 3 to sleep in the travern and replenish health " << endl;
+                cout << "Press 4 to travel " << endl;
 
                 int c2;
                 cin >> c2;
@@ -132,7 +136,31 @@ int main() {
                     displayStatsMob(opponent);
                     cout << "A " << opponent.name << " appears!" << endl;
                     fight(opponent, player);
-                } else if (c2 == 2) {
+                }
+                else if(c2 == 2) {
+                    shop(player);
+                    
+                }
+                else if(c2 == 3) {  
+                    cout << "Rent for the travern is 5 coins, do you want to sleep and replenish health?" << endl;
+                    char c3;
+                    cout << " Press y for yes and n for no" << endl;
+                    cin >> c3;
+                    if(c3 == 'y' || c3 == 'Y'){
+                        if(player.purse >= 5){
+                            cout << "Your health is FULL!" << endl;
+                            player.purse -= 5;
+                            player.hp = 120;
+                            displayStats(player);
+                        } 
+                        else{
+                            cout << "You dont have enough money, go kill some mobs" << endl;
+                        }
+                    }else if(c3 == 'n' || c3 == 'N'){
+                        cout << "You can come back to the travern anytime to regain health" << endl;
+                    }
+                } 
+                else if (c2 == 4) {
                     location = chooseLocation(); // Travel to another location
                 } else {
                     cout << "Invalid option." << endl;
