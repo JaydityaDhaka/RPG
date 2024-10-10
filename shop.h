@@ -3,6 +3,6 @@
 
 #include "characters.h"
 
-void shop(Character player);
+Character shop(Character player);
 
 #endif // SHOP_H

@@ -14,6 +14,21 @@ void displayStatsMob(const Mob& character) {
     cout << "-----------------------------" << endl;
 }
 
+Mob spawnDragon(string location){
+    Mob Dragon = {"Dragon", 200, 35, 25, 30, 500};
+    return Dragon;
+}
+
+Mob spawnCentaur(string location){
+    Mob Centaur = {"Centaur", 150, 30, 20, 25, 200};
+    return Centaur;
+}
+
+Mob spawnMinotaur(string location){
+    Mob Minotaur = {"Minotaur", 120, 25, 15, 20, 100};
+    return Minotaur;
+}
+
 Mob spawnRandomMob(string location) {
 
     int spawnChance = rand() % 100 + 1; 

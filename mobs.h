@@ -14,5 +14,8 @@ struct Mob {
 
 void displayStatsMob(const Mob& character);
 Mob spawnRandomMob(std::string location);
+Mob spawnMinotaur(std::string location);
+Mob spawnCentaur(std::string location);
+Mob spawnDragon(std::string location);
 
 #endif // MOBS_H
