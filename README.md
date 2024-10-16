@@ -13,7 +13,7 @@ Object-oriented structure for game entities (characters, mobs, locations)
 
 Clone this repository:
 ```bash
-git clone https://github.com/your-repo-name/terminal-rpg-game.git
+git clone https://github.com/yJaydityaDhaka/RPG.git
 ```
 
 Navigate to the project directory:
